@@ -1,0 +1,25 @@
+﻿@model _1516_ExamenFinal_Grupo7.Models.Usuario
+
+@{
+    ViewBag.Title = "Eliminar Usuario";
+}
+
+<h2>Eliminar Usuario</h2>
+
+<h3>¿Está seguro de que desea eliminar este usuario?</h3>
+
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(model => model.Nombre)</dt>
+    <dd>@Model.Nombre</dd>
+    <dt>@Html.DisplayNameFor(model => model.Apellidos)</dt>
+    <dd>@Model.Apellidos</dd>
+    <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+    <dd>@Model.Email</dd>
+</dl>
+
+@using (Html.BeginForm("DeleteConfirmed", "Usuarios", FormMethod.Post))
+{
+    <input type="hidden" name="id" value="@Model.Id" />
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    <a href="@Url.Action("Index", "Usuarios")" class="btn btn-secondary">Cancelar</a>
+}

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<_1516_ExamenFinal_Grupo7.Models.Usuario>
+
+@{
+    ViewBag.Title = "Lista de Usuarios";
+}
+
+<h2>Usuarios</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Apellidos</td>
+                <td>@usuario.Email</td>
+                <td>@usuario.Telefono</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Usuarios", new { id = usuario.Id })" class="btn btn-primary">Editar</a>
+                    <a href="@Url.Action("Delete", "Usuarios", new { id = usuario.Id })" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Create", "Usuarios")" class="btn btn-success">Crear Nuevo Usuario</a>
+

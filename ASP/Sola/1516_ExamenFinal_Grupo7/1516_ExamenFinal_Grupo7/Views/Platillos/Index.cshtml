@@ -1,0 +1,40 @@
+﻿@model IEnumerable<_1516_ExamenFinal_Grupo7.Models.Platillos>
+
+@{
+    ViewBag.Title = "Platillos";
+}
+
+<h2>Gestión de Platillos</h2>
+<p>Bienvenido a la página de gestión de platillos.</p>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Platillo", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Ingredientes)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Precio)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Imagen)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ingredientes)</td>
+                <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+                <td>@Html.DisplayFor(modelItem => item.Imagen)</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

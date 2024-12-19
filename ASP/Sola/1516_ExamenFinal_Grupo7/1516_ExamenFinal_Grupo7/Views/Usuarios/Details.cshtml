@@ -1,0 +1,48 @@
+﻿@model _1516_ExamenFinal_Grupo7.Models.Usuario
+
+@{
+    ViewBag.Title = "Detalles del Usuario";
+}
+
+<h2>Detalles del Usuario</h2>
+
+<div>
+    <h4>Información del Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Nombre)</dt>
+        <dd>@Html.DisplayFor(model => model.Nombre)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+        <dd>@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Activo)</dt>
+        <dd>
+            @if (Model.Activo)
+            {
+                <span class="text-success">Activo</span>
+            }
+            else
+            {
+                <span class="text-danger">Inactivo</span>
+            }
+        </dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Eliminado)</dt>
+        <dd>
+            @if (Model.Eliminado)
+            {
+                <span class="text-danger">Sí</span>
+            }
+            else
+            {
+                <span class="text-success">No</span>
+            }
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-secondary" })
+</p>

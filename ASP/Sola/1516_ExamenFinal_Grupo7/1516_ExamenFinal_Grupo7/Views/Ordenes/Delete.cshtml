@@ -1,0 +1,31 @@
+﻿@model _1516_ExamenFinal_Grupo7.Models.Ordenes
+
+@{
+    ViewBag.Title = "Eliminar Orden";
+}
+
+<h2>Eliminar Orden</h2>
+
+<h3>¿Estás seguro que deseas eliminar esta orden?</h3>
+<div>
+    <h4>Orden</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.IdMesa)</dt>
+        <dd>@Html.DisplayFor(model => model.IdMesa)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Estado)</dt>
+        <dd>@Html.DisplayFor(model => model.Estado)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.FechaOrden)</dt>
+        <dd>@Html.DisplayFor(model => model.FechaOrden)</dd>
+    </dl>
+
+
+    @using (Html.BeginForm("DeleteConfirmed", "Clientes", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.Id)
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    }
+</div>

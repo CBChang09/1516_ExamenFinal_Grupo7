@@ -1,0 +1,42 @@
+﻿@model _1516_ExamenFinal_Grupo7.Models.Platillos
+
+@{
+    ViewBag.Title = "Detalles del Platillo";
+}
+
+<h2>Detalles del Platillo</h2>
+
+<div>
+    <h4>Platillo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ingredientes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ingredientes)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Imagen)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
+</p>
